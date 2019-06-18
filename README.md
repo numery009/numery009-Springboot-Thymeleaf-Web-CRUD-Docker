@@ -6,7 +6,7 @@ This is a project of
 3) Docker
 
 # URL
-localhost:8080
+localhost:8080/
 
 
 # Run this project
