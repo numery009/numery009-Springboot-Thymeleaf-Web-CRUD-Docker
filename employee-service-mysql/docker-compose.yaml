@@ -1,0 +1,24 @@
+version: '3'
+
+services: 
+   springboot-thymeleaf-web-crud:
+      image: numery/springboot-thymeleaf-web-crud:latest
+      networks: 
+         - employee-network
+      ports:
+         - 8080:8080 
+      depends_on:
+         - employee-database   
+
+   employee-database:
+      image: mysql:5
+      networks:
+         - employee-network
+      environment:
+         - MYSQL_ROOT_PASSWORD=rootpassword
+         - MYSQL_DATABASE=employee_directory
+      volumes:
+         - /home/numery/Docker-Database/employee_directory:/var/lib/mysql
+
+networks:
+   employee-network:
